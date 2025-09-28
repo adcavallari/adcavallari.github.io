@@ -11,7 +11,7 @@ const Ministerios = () => {
       nome: "Jovens do Cavallari",
       instagram: "jovensdocavallari",
       url: "https://www.instagram.com/jovensdocavallari/",
-      descricao: "Jovens de Cristo, buscando viver o evangelho de forma autêntica e relevante em nossa geração.",
+      descricao: "Ministério de jovens que desejam viver a fé de forma verdadeira, sendo luz em sua geração.",
       hashtag: "#jovensdocavallari",
       cor: "#2563eb",
       lideres: ["Pb. Lucas Santos"],
@@ -37,7 +37,7 @@ const Ministerios = () => {
       nome: "Colunas de Fé",
       instagram: "colunasdefe_cavalari",
       url: "https://www.instagram.com/colunasdefe_cavalari/",
-      descricao: "Ministério de mulheres que buscam ser colunas firmes na fé, apoiando umas às outras em Cristo.",
+      descricao: "Ministério de irmãs que buscam ser colunas firmes na fé, apoiando umas às outras em Cristo.",
       hashtag: "#colunasdefe",
       cor: "#dc2626",
       lideres: ["Eliciane Nascimento"],
@@ -81,7 +81,7 @@ const Ministerios = () => {
                   <div className="ministerio-info">
                     <div className="info-item">
                       <h3 className="info-label">Líder:</h3>
-                      <h3>{ministerio.lideres.join(', ')}</h3>
+                      <h3>{ministerio.lideres.join(',')}</h3>
                     </div>
                   </div>
 

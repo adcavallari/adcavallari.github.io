@@ -13,4 +13,14 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
 </body>
+<script>
+    (function() {
+        const savedTheme = localStorage.getItem('theme');
+        const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        
+        if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+            document.body.setAttribute('data-theme', 'dark');
+        }
+    })();
+</script>
 </html>

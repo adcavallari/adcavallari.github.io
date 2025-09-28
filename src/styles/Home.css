@@ -1,133 +1,99 @@
 .home {
-  min-height: 100vh;
+  background: var(--bg-primary);
 }
 
-/* Hero Section */
 .hero {
-  background: linear-gradient(135deg, var(--azul-escuro) 0%, var(--azul-medio) 100%);
-  color: var(--branco);
-  padding: 120px 0 80px;
+  background: linear-gradient(135deg, #1e3a8a, #2563eb);
+  color: white;
+  padding: 100px 0;
   text-align: center;
-  position: relative;
-  overflow: hidden;
 }
 
 .hero h1 {
-  font-family: var(--fonte-titulo);
+  font-family: 'Poppins', sans-serif;
   font-size: 3.5rem;
-  margin-bottom: 1rem;
+  margin-bottom: 20px;
   font-weight: 700;
 }
 
 .hero p {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   max-width: 600px;
-  margin: 0 auto 2rem;
+  margin: 0 auto 30px;
   opacity: 0.9;
-  line-height: 1.6;
 }
 
-.hero-buttons {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.hero-buttons .btn {
-  position: relative;
-  z-index: 10;
-  pointer-events: auto !important;
-  opacity: 1 !important;
-}
-
-/* Debug visual */
-.hero-buttons .btn:hover {
-  background: #2563eb !important; /* Para ver se está respondendo */
-  color: white;
-  transform: scale(1.1) !important;
-}
-
-.btn-map {
-  background: transparent;
-  color: var(--branco);
-  border: 2px solid var(--branco);
-}
-
-.btn-map:hover {
-  background: var(--branco);
-  color: var(--azul-escuro);
-}
-
-/* About Section */
+/* ========== SEÇÃO SOBRE ========== */
 .about-section {
   padding: 80px 0;
-  background: var(--cinza-claro);
+  background: transparent !important;
 }
 
 .about-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.about-text {
+  order: 1;
+  text-align: center;
 }
 
 .about-text h2 {
-  font-family: var(--fonte-titulo);
+  color: var(--text-primary);
+  font-family: 'Poppins', sans-serif;
   font-size: 2.5rem;
-  color: var(--azul-escuro);
   margin-bottom: 1.5rem;
 }
 
 .about-text p {
   font-size: 1.1rem;
-  line-height: 1.8;
-  margin-bottom: 2rem;
-  color: var(--cinza-escuro);
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .about-features {
   display: grid;
-  gap: 1.5rem;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
 }
 
 .feature {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
+  background: transparent !important;
+  text-align: center;
+  padding: 2rem 1rem;
 }
 
 .feature-icon {
-  font-size: 2rem;
-  flex-shrink: 0;
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 1rem;
 }
 
 .feature h4 {
-  color: var(--azul-escuro);
+  color: var(--text-primary);
   margin-bottom: 0.5rem;
+  font-size: 1.2rem;
 }
 
 .feature p {
-  margin: 0;
+  color: var(--text-light);
   font-size: 1rem;
-}
-
-.about-section {
-  padding: 80px 0;
-  background: #f8fafc;
-}
-
-.about-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: center;
+  margin: 0;
 }
 
 .about-image {
+  order: 2;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 2rem;
 }
 
 .image-placeholder {
@@ -136,21 +102,30 @@
   height: 350px;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 
-    0 25px 50px rgba(30, 58, 138, 0.2),
-    0 0 0 4px #2563eb,
-    0 0 0 8px rgba(37, 99, 235, 0.1);
+  box-shadow: 0 25px 50px rgba(0,0,0,0.15),
+              0 0 0 4px var(--bg-card),
+              0 0 0 8px rgba(37, 99, 235, 0.1);
   border: 3px solid white;
   position: relative;
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
 }
 
 .image-placeholder:hover {
-  box-shadow: 
-    0 30px 60px rgba(30, 58, 138, 0.3),
-    0 0 0 4px #2563eb,
-    0 0 0 10px rgba(37, 99, 235, 0.15);
-  transform: translateY(-5px);
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 35px 60px rgba(0,0,0,0.2),
+              0 0 0 4px var(--bg-card),
+              0 0 0 12px rgba(37, 99, 235, 0.15);
+}
+
+.image-placeholder::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(30, 58, 138, 0.1), rgba(37, 99, 235, 0.1));
+  z-index: 1;
 }
 
 .image-placeholder img {
@@ -159,28 +134,31 @@
   object-fit: cover;
   object-position: center;
   transition: transform 0.5s ease;
+  position: relative;
+  z-index: 0;
 }
 
 .image-placeholder:hover img {
-  transform: scale(1.05);
-}
-.about-text h2 {
-  color: #1e3a8a;
-  font-family: 'Poppins', sans-serif;
-  font-size: 2.5rem;
-  margin-bottom: 1.5rem;
+  transform: scale(1.1);
 }
 
-.about-text p {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #374151;
-  margin-bottom: 2rem;
+[data-theme="dark"] .image-placeholder {
+  border: 3px solid #334155;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.3),
+              0 0 0 4px var(--bg-card),
+              0 0 0 8px rgba(37, 99, 235, 0.2);
 }
 
-.ministerios-section {
+[data-theme="dark"] .image-placeholder:hover {
+  box-shadow: 0 35px 60px rgba(0,0,0,0.4),
+              0 0 0 4px var(--bg-card),
+              0 0 0 12px rgba(37, 99, 235, 0.25);
+}
+
+/* ========== MINISTÉRIOS PREVIEW ========== */
+.ministerios-preview {
   padding: 60px 0;
-  background: #f8fafc;
+  background: var(--bg-secondary);
 }
 
 .ministerios-header {
@@ -189,14 +167,14 @@
 }
 
 .ministerios-header h2 {
-  color: #1e3a8a; /* Azul dos h2 da home */
+  color: var(--text-primary);
   font-family: 'Poppins', sans-serif;
   font-size: 2.5rem;
-  
+  margin-bottom: 1rem;
 }
 
 .ministerios-header p {
-  color: #6b7280;
+  color: var(--text-light);
   font-size: 1.2rem;
   max-width: 600px;
   margin: 0 auto;
@@ -204,159 +182,161 @@
 
 .ministerios-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  margin-top: 2rem;
-  margin-bottom: 2rem !important;
-}
-
-/* Espaçamento antes do footer */
-.ministerios-section + footer {
-  margin-top: 60px;
 }
 
 .ministerio-preview {
-  background: white;
+  background: var(--bg-card);
   padding: 2rem;
   border-radius: 15px;
   text-align: center;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
+  box-shadow: var(--shadow);
   border-left: 4px solid #2563eb;
+  transition: transform 0.3s ease;
 }
 
 .ministerio-preview:hover {
   transform: translateY(-5px);
 }
 
-.ministerios-image{
-  width: 120px;
-  height: 120px;
+.ministerios-image {
+  width: 100px;
+  height: 100px;
   margin: 0 auto 1rem;
   border-radius: 50%;
   overflow: hidden;
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  background: white;
 }
 
-.ministerio-image img {
+.ministerios-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.ministerio-buttons a {
-  text-decoration: none !important;
+.ministerio-preview h3 {
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.ministerio-preview p {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
 }
 
 .ministerio-buttons {
   display: flex;
   flex-direction: column;
-  text-decoration: none !important;
   gap: 10px;
-  margin-top: 1.5rem;
+}
+
+.btn-contato {
+  padding: 12px 24px;
+  margin-right: 15px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 2px solid white;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  backdrop-filter: blur(10px);
+}
+
+.btn-contato:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+}
+
+.btn-map {
+  padding: 15px 30px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 2px solid white;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  backdrop-filter: blur(10px);
+}
+
+.btn-map:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.2);
+}
+
+.btn-primary, .btn-secondary {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  text-align: center;
 }
 
 .btn-primary {
-  background: rgb(223, 223, 223);
-  color: #374151;
-  padding: 12px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: all 0.3s ease;
-}
-
-.btn-primary:hover {
-  transform: translateY(-2px);
-  background: #1e3a8a;
+  background: linear-gradient(135deg, #1e3a8a, #2563eb);
   color: white;
-  box-shadow: 0 5px 15px rgba(30, 58, 138, 0.3);
 }
 
 .btn-secondary {
-  background: rgb(223, 223, 223);
-  border-color: #374151;
-  color: #374151;
-  padding: 12px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: all 0.3s ease;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.btn-secondary:hover {
-  background: #1e3a8a;
+  background: linear-gradient(135deg, #E1306C, #C13584);
   color: white;
-  transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(30, 58, 138, 0.3);
 }
 
-/* Responsive */
+.btn-primary:hover, .btn-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
 @media (max-width: 1024px) {
-  .about-content {
-    gap: 3rem;
+  .ministerios-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
   
-  .image-placeholder {
-    max-width: 400px;
-    height: 300px;
+  .about-features {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 768px) {
-  .hero {
-    padding: 100px 0 60px;
-  }
-
-  .hero h1 {
-    font-size: 2.5rem;
-  }
-
-  .hero p {
-    font-size: 1.1rem;
-  }
-
   .about-content {
+    text-align: center;
+  }
+  
+  .about-features {
     grid-template-columns: 1fr;
-    gap: 2rem;
   }
-
-  .about-text h2 {
-    font-size: 2rem;
-  }
-
+  
   .ministerios-grid {
     grid-template-columns: 1fr;
   }
   
-  .ministerio-buttons {
-    flex-direction: column;
-  }
-
-  .about-content {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    text-align: center;
-  }
-  
-  .image-placeholder {
-    max-width: 100%;
-    height: 250px;
-    margin: 0 auto;
+  .hero h1 {
+    font-size: 2.5rem;
   }
   
   .about-text h2 {
     font-size: 2rem;
   }
-}
-
-@media (max-width: 480px) {
+  
   .image-placeholder {
-    height: 200px;
-    border-width: 5px;
+    height: 300px;
   }
 }

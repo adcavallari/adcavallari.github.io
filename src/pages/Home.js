@@ -16,13 +16,13 @@ const Home = () => {
           <p>"Vinde a mim, todos os que estais cansados e oprimidos, e eu vos aliviarei." - Mateus 11:28</p>
           <div className="hero-buttons">
             {/* Botão para Contato */}
-            <Link to="/contato" className="btn btn-map">
+            <Link to="/contato" className="btn-contato">
               📞 Fale Conosco
             </Link>
             
             {/* Botão Como Chegar - abrir Google Maps */}
             <button 
-              className="btn btn-map"
+              className="btn-map"
               onClick={() => window.open('https://www.google.com/maps/place/Assembl%C3%A9ia+de+Deus+de+Mar%C3%ADlia+Jardim+Cavallari/@-22.2388245,-49.9769417,1007m/data=!3m1!1e3!4m6!3m5!1s0x94bfd79d89aa3785:0x31e185991f3ceaa8!8m2!3d-22.2368136!4d-49.977896!16s%2Fg%2F11bw62h4p4?entry=ttu&g_ep=EgoyMDI1MDkyMy4wIKXMDSoASAFQAw%3D%3D', '_blank')}
             >
               🗺️ Como Chegar
@@ -35,6 +35,8 @@ const Home = () => {
       <section className="about-section">
         <div className="container">
           <div className="about-content">
+            
+            {/* Texto e Features - AGORA EM CIMA */}
             <div className="about-text">
               <h2>Bem-vindo à Família AD Cavallari</h2>
               <p>
@@ -42,6 +44,7 @@ const Home = () => {
                 Nossa missão é espalhar o amor de Cristo através de cultos inspiradores, 
                 grupos de crescimento e ações sociais.
               </p>
+              
               <div className="about-features">
                 <div className="feature">
                   <span className="feature-icon">🙏</span>
@@ -60,11 +63,14 @@ const Home = () => {
                 </div>
               </div>
             </div>
+            
+            {/* Imagem - AGORA EMBAIXO */}
             <div className="about-image">
               <div className="image-placeholder">
-                <img className="image-placeholder" src={imgigreja} alt='imagem_igreja'></img>
+                <img src={imgigreja} alt='Igreja AD Cavallari' />
               </div>
             </div>
+            
           </div>
         </div>
       </section>

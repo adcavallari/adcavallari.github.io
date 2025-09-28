@@ -1,11 +1,42 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import '../../styles/Header.css';
-import logo from '../../assets/logo2.png';
+import logob from '../../assets/logo_branca.png';
+import logoa from '../../assets/logo_azul.png';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
   const location = useLocation();
+
+  // Carrega o tema salvo ao iniciar
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    const theme = savedTheme === 'dark' || (!savedTheme && systemPrefersDark);
+    setIsDarkMode(theme);
+    applyTheme(theme);
+  }, []);
+
+  const applyTheme = (dark) => {
+    if (dark) {
+      document.body.setAttribute('data-theme', 'dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.body.removeAttribute('data-theme');
+      localStorage.setItem('theme', 'light');
+    }
+  };
+
+  const toggleTheme = () => {
+    const newDarkMode = !isDarkMode;
+    setIsDarkMode(newDarkMode);
+    applyTheme(newDarkMode);
+  };
+
+  // 🔥 NOVO: Define qual logo usar baseado no tema
+  const currentLogo = isDarkMode ? logob : logoa;
 
   const navigationItems = [
     { path: '/', label: 'Início' },
@@ -20,10 +51,11 @@ const Header = () => {
     <header className="header">
       <div className="container">
         <div className="header-content">
-          {/* Logo com imagem - CORRIGIDO */}
+          {/* Logo */}
           <div className="logo">
-            <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
-              <img src={logo} alt="AD Cavallari" className="logo-image" />
+            <Link to="/">
+              {/* 🔥 ATUALIZADO: Logo muda conforme o tema */}
+              <img src={currentLogo} alt="AD Cavallari" className="logo-image" />
               <span className="logo-text">AD CAVALLARI</span>
             </Link>
           </div>
@@ -35,11 +67,19 @@ const Header = () => {
                 key={item.path}
                 to={item.path}
                 className={`nav-link ${isActive(item.path) ? 'active' : ''}`}
-                style={{ textDecoration: 'none' }}
               >
                 {item.label}
               </Link>
             ))}
+            
+            {/* Botão Toggle Theme */}
+            <button 
+              className="theme-toggle"
+              onClick={toggleTheme}
+              aria-label="Mudar tema"
+            >
+              {isDarkMode ? '☀️' : '🌙'}
+            </button>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -61,11 +101,17 @@ const Header = () => {
               to={item.path}
               className={`nav-link ${isActive(item.path) ? 'active' : ''}`}
               onClick={() => setIsMenuOpen(false)}
-              style={{ textDecoration: 'none' }}
             >
               {item.label}
             </Link>
           ))}
+          
+          <button 
+            className="theme-toggle mobile"
+            onClick={toggleTheme}
+          >
+            {isDarkMode ? '☀️ Modo Claro' : '🌙 Modo Escuro'}
+          </button>
         </nav>
       </div>
     </header>

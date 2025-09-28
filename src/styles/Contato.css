@@ -1,5 +1,6 @@
 .contato-page {
   min-height: 100vh;
+  background: var(--bg-primary);
 }
 
 .contato-hero {
@@ -15,12 +16,19 @@
   margin-bottom: 1rem;
 }
 
-.contato-content {
-  padding: 60px 0;
-  background: #f8fafc;
+.contato-hero p{
+  font-size: 1.2rem;
+  opacity: 0.9;
+  color: white !important;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-/* Grid de Informações */
+.contato-content {
+  padding: 60px 0;
+  background: var(--bg-primary);
+}
+
 .contato-info-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -29,68 +37,55 @@
 }
 
 .info-card {
-  background: white;
+  background: var(--bg-card);
   padding: 2rem;
   border-radius: 10px;
   text-align: center;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  box-shadow: var(--shadow);
   border-left: 4px solid #2563eb;
 }
 
 .info-card h3 {
-  color: #1e3a8a;
+  color: var(--text-primary);
   margin-bottom: 1rem;
   font-size: 1.2rem;
 }
 
 .info-card p {
   font-weight: 600;
-  color: #374151;
+  color: var(--text-secondary);
   margin-bottom: 0.5rem;
 }
 
 .info-desc {
   font-size: 0.9rem;
-  color: #6b7280;
+  color: var(--text-light);
 }
 
-.alert.success {
-  background: #d4edda;
-  color: #155724;
-  padding: 1rem;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-  border: 1px solid #c3e6cb;
-}
-
-.alert.error {
-  background: #f8d7da;
-  color: #721c24;
-  padding: 1rem;
-  border-radius: 8px;
-  margin-bottom: 1rem;
-  border: 1px solid #f5c6cb;
-}
-
-/* Redes Sociais */
 .redes-sociais-section {
-  background: white;
-  padding: 2rem;
+  background: var(--bg-card);
+  padding: 1rem;
   border-radius: 10px;
   margin-bottom: 3rem;
   text-align: center;
+  box-shadow: var(--shadow);
 }
 
 .redes-sociais-section h2 {
-  color: #1e3a8a;
+  color: var(--text-primary);
   margin-bottom: 2rem;
   font-family: 'Poppins', sans-serif;
 }
 
+.rede-social-icon{
+  width: 32px;
+  height: auto;
+}
+
 .redes-grid {
-  display: grid !important;
-  grid-template-columns: repeat(4, 1fr) !important;
-  gap: 1rem !important;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
 }
 
 .rede-social-link {
@@ -99,10 +94,10 @@
   justify-content: center;
   gap: 12px;
   padding: 1rem;
-  background: #f8fafc;
+  background: var(--bg-secondary);
   border-radius: 8px;
   text-decoration: none;
-  color: #374151;
+  color: var(--text-secondary);
   transition: all 0.3s ease;
   border: 2px solid transparent;
 }
@@ -111,15 +106,8 @@
   background: #2563eb;
   color: white;
   transform: translateY(-2px);
-  border-color: #1e3a8a;
 }
 
-.rede-social-icon {
-  width: 24px;
-  height: 24px;
-}
-
-/* Formulário e Mapa */
 .form-mapa-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -127,14 +115,14 @@
 }
 
 .form-container, .mapa-container {
-  background: white;
+  background: var(--bg-card);
   padding: 2rem;
   border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  box-shadow: var(--shadow);
 }
 
 .form-container h2, .mapa-container h2 {
-  color: #1e3a8a;
+  color: var(--text-primary);
   margin-bottom: 1.5rem;
   font-family: 'Poppins', sans-serif;
 }
@@ -147,7 +135,7 @@
   display: block;
   margin-bottom: 0.5rem;
   font-weight: 600;
-  color: #374151;
+  color: var(--text-primary);
 }
 
 .form-group input,
@@ -155,7 +143,9 @@
 .form-group textarea {
   width: 100%;
   padding: 12px;
-  border: 2px solid #e5e7eb;
+  background: var(--bg-primary);
+  color: var(--text-secondary);
+  border: 2px solid var(--border-color);
   border-radius: 8px;
   font-size: 1rem;
   transition: border-color 0.3s ease;
@@ -195,17 +185,16 @@
 .endereco-info {
   text-align: center;
   padding: 1rem;
-  background: #f8fafc;
+  background: var(--bg-secondary);
   border-radius: 8px;
 }
 
 .endereco-info p {
   margin: 0;
   font-weight: 500;
-  color: #374151;
+  color: var(--text-secondary);
 }
 
-/* Estilos para o botão do Google Maps */
 .btn-maps {
   display: flex;
   align-items: center;
@@ -221,28 +210,23 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(52, 168, 83, 0.3);
 }
 
 .btn-maps:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(52, 168, 83, 0.4);
-  background: linear-gradient(135deg, #2e8b57, #34a853);
 }
 
-.btn-maps:active {
-  transform: translateY(0);
+@media (max-width: 1024px) {
+  .redes-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-/* Media Queries */
 @media (max-width: 968px) {
   .form-mapa-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
-  }
-  
-  .redes-grid {
-    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -255,8 +239,27 @@
     grid-template-columns: 1fr;
   }
   
-  .btn-maps {
-    padding: 10px 16px;
-    font-size: 0.9rem;
+  .contato-hero h1 {
+    font-size: 2.5rem;
   }
+}
+
+[data-theme="dark"] .redes-sociais-section {
+  background: var(--bg-card) !important;
+}
+
+[data-theme="dark"] .rede-social-link {
+  background: var(--bg-secondary) !important;
+  color: var(--text-secondary) !important;
+  border: 2px solid var(--border-color) !important;
+}
+
+[data-theme="dark"] .rede-social-link:hover {
+  background: #2563eb !important;
+  color: white !important;
+  border-color: #1e3a8a !important;
+}
+
+[data-theme="dark"] .redes-sociais-section h2 {
+  color: var(--text-primary) !important;
 }
