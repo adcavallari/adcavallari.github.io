@@ -42,6 +42,7 @@ const Header = () => {
     { path: '/', label: 'Início' },
     { path: '/transmissoes', label: 'Transmissões' },
     { path: '/ministerios', label: 'Ministérios' },
+    { path: '/construcao', label: 'Novo Templo' },
     { path: '/contato', label: 'Contato' }
   ];
 
@@ -62,15 +63,19 @@ const Header = () => {
 
           {/* Navigation Desktop */}
           <nav className="nav-desktop">
-            {navigationItems.map(item => (
-              <Link
-                key={item.path}
-                to={item.path}
-                className={`nav-link ${isActive(item.path) ? 'active' : ''}`}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {navigationItems.map(item => {
+              const active = isActive(item.path);
+              console.log(`${item.label}: ${active}`);
+              return(
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  className={`nav-link ${isActive(item.path) ? 'active' : ''}`}
+                >
+                  {item.label}
+                </Link>
+            );
+            })}
             
             {/* Botão Toggle Theme */}
             <button 

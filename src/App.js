@@ -6,6 +6,7 @@ import Home from './pages/Home';
 import Ministerios from './pages/Ministerios';
 import Contato from './pages/Contato';
 import Transmissoes from './pages/Transmissoes';
+import Construcao from './pages/Construcao';
 import './styles/App.css';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
             <Route path="/ministerios" element={<Ministerios />} />
             <Route path="/contato" element={<Contato />} />
             <Route path="/transmissoes" element={<Transmissoes />} />
+            <Route path="/construcao" element={<Construcao />} />
             <Route path="*" element={<Home />} />
           </Routes>
         </main>

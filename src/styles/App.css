@@ -14,6 +14,9 @@
   --border-light: #f3f4f6;
   
   --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+
+  --primary-color: #1e3a8a;
+  --secondary-color: #2563eb;
 }
 
 [data-theme="dark"] {
@@ -31,6 +34,9 @@
   --border-light: #334155;
   
   --shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+
+  --primary-color: #1e40af;
+  --secondary-color: #3b82f6;
 }
 
 /* ========== APLICAÇÃO GLOBAL ========== */

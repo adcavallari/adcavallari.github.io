@@ -9,7 +9,7 @@ const Footer = () => {
           {/* Informações da Igreja */}
           <div className="footer-section">
             <h3>AD Cavallari</h3>
-            <p>Uma comunidade de fé, esperança e amor. Junte-se a nós nessa jornada espiritual.</p>
+            <p>Uma igreja de fé, esperança e amor. Junte-se a nós nessa jornada até o céu.</p>
             <div className="social-links">
               <a href="https://www.facebook.com/ad.cavallari/" target="_blank" rel="noopener noreferrer" className="social-link">
                 <svg className="social-icon" viewBox="0 0 24 24" width="20" height="20">

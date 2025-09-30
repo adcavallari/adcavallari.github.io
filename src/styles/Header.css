@@ -58,18 +58,44 @@
   color: var(--text-secondary);
   cursor: pointer;
   padding: 0.5rem 1rem;
-  border-radius: 6px;
+  /* 🔥 REMOVIDO: border-radius: 6px; */
   transition: all 0.3s ease;
   text-decoration: none;
+  position: relative;
 }
 
 .nav-link:hover {
   color: var(--text-primary);
+  /* 🔥 REMOVIDO: qualquer background no hover */
 }
 
 .nav-link.active {
   color: var(--text-primary);
   font-weight: 600;
+  /* 🔥 REMOVIDO: qualquer background no active */
+}
+
+/* 🔥 LINHA SIMPLES E ARREDONDADA */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--primary-color);
+  border-radius: 1px; /* 🔥 Arredondamento sutil na linha */
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+  width: 80%;
+}
+
+.nav-link.active::after {
+  width: 90%;
+  background: var(--primary-color);
 }
 
 .theme-toggle {
@@ -131,7 +157,7 @@
   display: flex;
 }
 
-/* 🔥 NOVO: Ajustes para mobile */
+/* 🔥 Ajuste para mobile */
 @media (max-width: 768px) {
   .nav-desktop {
     display: none;
@@ -149,6 +175,20 @@
   .logo-text {
     font-size: 1.3rem; /* 🔥 Texto um pouco menor no mobile */
     transform: translateY(-1px);
+  }
+
+  /* 🔥 Ajustes da linha no mobile */
+  .nav-link::after {
+    bottom: -5px; /* Posição mais próxima no mobile */
+    height: 2px; /* Linha mais fina no mobile */
+  }
+  
+  .nav-mobile .nav-link {
+    padding: 0.8rem 1rem; /* Mais espaço no mobile */
+  }
+  
+  .nav-link.active::after {
+    width: 90%; /* Linha mais larga no mobile */
   }
 }
 

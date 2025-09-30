@@ -4,7 +4,7 @@ import '../styles/Home.css';
 import logojovens from '../assets/jovenslogo.png';
 import logojoias from '../assets/joiaslogo.png';
 import logocolunas from '../assets/colunaslogo.png';
-import imgigreja from '../assets/imgigreja.jpg';
+import imgigreja from '../assets/FamiliaCavallari.jpeg';
 
 const Home = () => {
   return (

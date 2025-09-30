@@ -425,7 +425,7 @@
   width: 100%;
   padding: 12px;
   background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  color: var(--text-light);
+  color: white;
   border: none;
   border-radius: 10px;
   font-weight: 600;

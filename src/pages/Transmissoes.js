@@ -226,7 +226,7 @@ const Transmissoes = () => {
                 <div className="programacao">
                   <div className="horario-item">
                     <span className="dia">Terça-feira</span>
-                    <span className="hora">20:00 - Tarde da Benção</span>
+                    <span className="hora">15:00 - Tarde da Benção</span>
                   </div>
                   <div className="horario-item">
                     <span className="dia">Quarta-feira</span>

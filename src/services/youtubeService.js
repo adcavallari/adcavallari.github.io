@@ -2,7 +2,7 @@ import config from '../config/youtube';
 
 class YouTubeService {
   constructor() {
-    // 🔥 KEYS DIRETAS NO CÓDIGO (substitua pelas suas keys)
+    // 🔥 KEYS DIRETAS NO CÓDIGO
     this.apiKeys = [
       'AIzaSyBAwcYfyhT8lwQg8Fz1GSVUqC-hjFZHFFI',
       'AIzaSyAHC6AIoxcXzOkpX73aM-Qg8751QYRmwso', 
@@ -73,10 +73,16 @@ class YouTubeService {
           console.warn(`⚠️ Quota excedida na key ${this.currentKeyIndex + 1}`);
           this.failedKeys.add(apiKey);
           
-          // Tenta com próxima key
-          this.currentKeyIndex = (this.currentKeyIndex + 1) % this.apiKeys.length;
-          console.log('🔄 Tentando com próxima API Key...');
-          return this.makeRequest(endpoint, params);
+          // 🔥 CORREÇÃO: Não faz recursão infinita
+          if (this.failedKeys.size < this.apiKeys.length) {
+            // Tenta com próxima key
+            this.currentKeyIndex = (this.currentKeyIndex + 1) % this.apiKeys.length;
+            console.log('🔄 Tentando com próxima API Key...');
+            return this.makeRequest(endpoint, params);
+          } else {
+            console.warn('🚫 Todas as keys falharam, retornando vazio');
+            return { items: [] }; // 🔥 Retorna vazio em vez de fallback com dados
+          }
         }
         
         throw new Error(`HTTP error! status: ${response.status}`);
@@ -106,7 +112,9 @@ class YouTubeService {
         return this.cache.get(cacheKey).data;
       }
       
-      throw error;
+      // 🔥 CORREÇÃO: Retorna vazio em vez de fallback com dados falsos
+      console.log('🔄 Retornando vazio devido a erro');
+      return { items: [] };
     }
   }
 
@@ -133,7 +141,8 @@ class YouTubeService {
       
     } catch (error) {
       console.error('❌ Erro ao buscar Channel ID:', error);
-      return 'UC3H6tDu1TJXDIxrwU1WV9fQ';
+      // 🔥 CORREÇÃO: Não usa fallback fixo, deixa null
+      return null;
     }
   }
 
@@ -141,6 +150,8 @@ class YouTubeService {
   async getUpcomingLiveStreams() {
     try {
       const channelId = await this.getChannelId();
+      if (!channelId) return []; // 🔥 Se não tem channelId, retorna vazio
+      
       console.log('📅 Buscando lives programadas...');
       
       const data = await this.makeRequest('search', {
@@ -195,6 +206,8 @@ class YouTubeService {
   async getRecentVideos(limit = 6) {
     try {
       const channelId = await this.getChannelId();
+      if (!channelId) return this.getFallbackVideos(limit); // 🔥 Só usa fallback se não tem channelId
+      
       console.log('📹 Buscando vídeos do channel:', channelId);
 
       // Busca TODOS os vídeos
@@ -368,6 +381,7 @@ class YouTubeService {
   async getLiveStreams() {
     try {
       const channelId = await this.getChannelId();
+      if (!channelId) return { items: [] }; // 🔥 Se não tem channelId, retorna vazio
       
       const data = await this.makeRequest('search', {
         channelId: channelId,
@@ -394,7 +408,7 @@ class YouTubeService {
   }
 
   getFallbackVideos(limit = 6) {
-    console.log('🔄 Usando fallback');
+    console.log('🔄 Usando fallback de vídeos');
     
     const fallbackVideos = [
       {
