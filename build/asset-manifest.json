@@ -1,19 +1,27 @@
 {
   "files": {
-    "main.css": "/static/css/main.9eefe83b.css",
-    "main.js": "/static/js/main.48e411d7.js",
-    "static/media/imgigreja.jpg": "/static/media/imgigreja.b3ba43254c4a88fc57b2.jpg",
+    "main.css": "/static/css/main.8b28ce10.css",
+    "main.js": "/static/js/main.27984845.js",
+    "static/media/FamiliaCavallari.jpeg": "/static/media/FamiliaCavallari.58e58121d1b0e6ec7228.jpeg",
+    "static/media/fotoIgreja1.jpeg": "/static/media/fotoIgreja1.fdc5c526e63ba2050521.jpeg",
+    "static/media/fotoIgreja4.jpeg": "/static/media/fotoIgreja4.134451e7a4c77bd2b860.jpeg",
     "static/media/logo_branca.png": "/static/media/logo_branca.ae33c4971c26536a2a07.png",
     "static/media/logo_azul.png": "/static/media/logo_azul.cf5d195e5ba420863bf2.png",
+    "static/media/fotoIgreja2.jpeg": "/static/media/fotoIgreja2.1933e0855a5edeadc79c.jpeg",
+    "static/media/fotoIgreja7.jpeg": "/static/media/fotoIgreja7.7afdf6b989e2ed0d703c.jpeg",
+    "static/media/fotoIgreja3.jpeg": "/static/media/fotoIgreja3.e29175c92e1a1e743e60.jpeg",
+    "static/media/fotoIgreja5.jpeg": "/static/media/fotoIgreja5.726ec6774f8dc3e6ef2b.jpeg",
+    "static/media/fotoIgreja6.jpeg": "/static/media/fotoIgreja6.683bc0b932d20006df9e.jpeg",
+    "static/media/fotoIgreja8.jpeg": "/static/media/fotoIgreja8.b2d59f804a680d87fc3a.jpeg",
     "static/media/colunaslogo.png": "/static/media/colunaslogo.f147adad16f1308520ed.png",
     "static/media/joiaslogo.png": "/static/media/joiaslogo.886834b2e430ef1e2cfc.png",
     "static/media/jovenslogo.png": "/static/media/jovenslogo.80ec81a0d3795bdc7f4f.png",
     "index.html": "/index.html",
-    "main.9eefe83b.css.map": "/static/css/main.9eefe83b.css.map",
-    "main.48e411d7.js.map": "/static/js/main.48e411d7.js.map"
+    "main.8b28ce10.css.map": "/static/css/main.8b28ce10.css.map",
+    "main.27984845.js.map": "/static/js/main.27984845.js.map"
   },
   "entrypoints": [
-    "static/css/main.9eefe83b.css",
-    "static/js/main.48e411d7.js"
+    "static/css/main.8b28ce10.css",
+    "static/js/main.27984845.js"
   ]
 }
