@@ -53,7 +53,7 @@ const Home = () => {
                 </div>
                 <div className="feature">
                   <span className="feature-icon">👨‍👩‍👧‍👦</span>
-                  <h4>Comunidade</h4>
+                  <h4>Família</h4>
                   <p>Família unida em Cristo</p>
                 </div>
                 <div className="feature">
