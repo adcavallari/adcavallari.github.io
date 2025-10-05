@@ -272,7 +272,7 @@ const Construcao = () => {
                       </li>
                       <li>
                         <SvgIcons.check className="check-icon" />
-                        <strong>Banheiros:</strong> 3 Banheiros
+                        <strong>Banheiros:</strong> 2 Banheiros
                       </li>
                       <li>
                         <SvgIcons.check className="check-icon" />
